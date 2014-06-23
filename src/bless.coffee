@@ -66,6 +66,15 @@ bless = (data) ->
       # No-ops.
       #
       when 'comment'
+        numSelectors += 0
+
+      # keyframes
+      #
+      when 'keyframes'
+        startNewAst() if numSelectors + rule.keyframes.length > SELECTOR_LIMIT
+
+        numSelectors += rule.keyframes.length
+        totalNumSelectors += rule.keyframes.length
 
       # Nested rules. Media queries, for example.
       #
