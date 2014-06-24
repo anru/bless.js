@@ -1,5 +1,5 @@
 {
-  "name": "bless",
+  "name": "bless4",
   "description": "CSS Post-Processor",
   "url": "http://blesscss.com",
   "keywords": [
@@ -11,10 +11,15 @@
     "stylus"
   ],
   "author": "Paul Young <paulyoungonline+bless@gmail.com>",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "bin": {
     "blessc": "./bin/blessc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anru/bless.js.git"
+  },
+  "homepage": "https://github.com/anru/bless.js",
   "main": "./lib/bless",
   "directories": {
     "test": "./test"
