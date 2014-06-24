@@ -11,7 +11,7 @@
     "stylus"
   ],
   "author": "Paul Young <paulyoungonline+bless@gmail.com>",
-  "version": "4.0.2",
+  "version": "4.10.1",
   "bin": {
     "blessc": "./bin/blessc"
   },

@@ -11,7 +11,7 @@ createAst = (rules) ->
     rules: rules
 
 
-bless = (data) ->
+bless = (data, limit = SELECTOR_LIMIT) ->
 
   # Convert the CSS into an abstract syntax tree.
   #
@@ -56,7 +56,7 @@ bless = (data) ->
         # Check if adding this rule will break the selector limit. If so,
         # produce a new AST first.
         #
-        startNewAst() if numSelectors + rule.selectors.length > SELECTOR_LIMIT
+        startNewAst() if numSelectors + rule.selectors.length > limit
 
 
         numSelectors += rule.selectors.length
@@ -82,7 +82,7 @@ bless = (data) ->
         for nestedRule in rule.rules
           numNestedRuleSelectors += nestedRule.selectors.length
 
-        startNewAst() if numSelectors + numNestedRuleSelectors > SELECTOR_LIMIT
+        startNewAst() if numSelectors + numNestedRuleSelectors > limit
 
 
         numSelectors += numNestedRuleSelectors
@@ -94,7 +94,7 @@ bless = (data) ->
     # Produce a new AST every time the selector limit is reached and reset
     # the rules cache.
     #
-    startNewAst() if numSelectors is SELECTOR_LIMIT
+    startNewAst() if numSelectors is limit
 
 
   # Convert any remaining rules to a new AST. This also accounts for the case
