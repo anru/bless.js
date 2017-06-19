@@ -67,6 +67,10 @@ bless = (data, limit = SELECTOR_LIMIT) ->
       #
       when 'comment'
         break
+      # Character encoding
+      #
+      when 'charset'
+        break
       # keyframes are not supported by IE8-IE9
       #
       when 'keyframes'
